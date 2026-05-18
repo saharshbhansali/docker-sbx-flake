@@ -1,4 +1,9 @@
-{ stdenv, fetchzip, lib, ... }@args:
+{
+  stdenv,
+  fetchzip,
+  lib,
+  ...
+}@args:
 
 stdenv.mkDerivation {
   pname = "sbx";
@@ -10,4 +15,7 @@ stdenv.mkDerivation {
     sha256 = "sha256-E9Fu3FZNA88LRyaxAfxDwFQAXgo9lT8MhnH/c+bDBgc=";
   };
 
+  installPhase = ''
+
+  '';
 }
