@@ -18,6 +18,10 @@ stdenv.mkDerivation {
   pname = "sbx";
   version = "0.29.0";
 
+  nativeBuildInputs = [
+    autoPatchelfHook
+  ];
+
   buildInputs = [
     e2fsprogs
     zlib
