@@ -20,6 +20,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     autoPatchelfHook
+    makeWrapper
   ];
 
   buildInputs = [
@@ -50,6 +51,15 @@ stdenv.mkDerivation {
     install -Dm644 nerdbox-initrd-* $out/libexec/
     install -Dm644 nerdbox-kernel-* $out/libexec/
     install -Dm644 apparmor-profile $out/etc/apparmor.d/docker-sbx-nerdbox-shim
+  '';
+
+  postInstall = ''
+    wrapProgram $out/bin/sbx \
+      --prefix PATH : ${
+        lib.makeBinPath [
+          e2fsprogs
+        ]
+      }
   '';
 
   meta = with lib; {
