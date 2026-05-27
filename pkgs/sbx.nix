@@ -52,4 +52,12 @@ stdenv.mkDerivation {
     install -Dm644 apparmor-profile $out/etc/apparmor.d/docker-sbx-nerdbox-shim
   '';
 
+  meta = with lib; {
+    description = "Run AI coding agents in isolated microVM sandboxes";
+    homepage = "https://docs.docker.com/ai/sandboxes/";
+    license = licenses.mit;
+    maintainers = [ ];
+    mainProgram = "sbx";
+  };
+
 }
