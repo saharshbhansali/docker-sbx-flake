@@ -28,6 +28,8 @@ stdenv.mkDerivation {
     lz4
     zstd
     xxhash
+
+    stdenv.cc.cc.lib
   ];
 
   src = fetchzip {
