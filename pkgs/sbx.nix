@@ -26,13 +26,13 @@ stdenv.mkDerivation {
     mkdir -p $out/libexec/lib
     mkdir -p $out/share
     mkdir -p $out/etc/apparmor.d
-    cp sbx $out/bin/sbx
-    cp libkrun.so $out/libexec/lib/libkrun.so
-    cp mkfs.erofs $out/libexec/mkfs.erofs
-    cp containerd-shim-nerdbox-* $out/libexec/
-    cp nerdbox-initrd-* $out/libexec/
-    cp nerdbox-kernel-* $out/libexec/
-    cp apparmor-profile $out/etc/apparmor.d/docker-sbx-nerdbox-shim
+    install -Dm755 sbx $out/bin/sbx
+    install -Dm755 libkrun.so $out/libexec/lib/libkrun.so
+    install -Dm755 mkfs.erofs $out/libexec/mkfs.erofs
+    install -Dm755 containerd-shim-nerdbox-* $out/libexec/
+    install -Dm644 nerdbox-initrd-* $out/libexec/
+    install -Dm644 nerdbox-kernel-* $out/libexec/
+    install -Dm644 apparmor-profile $out/etc/apparmor.d/docker-sbx-nerdbox-shim
   '';
 
 }
