@@ -2,17 +2,28 @@
   stdenv,
   fetchzip,
   lib,
+  autoPatchelfHook,
+  makeWrapper,
+  zlib,
+  lz4,
+  zstd,
+  xxhash,
+  e2fsprogs,
   ...
 }@args:
 
-with import <nixpkgs> { };
+# with import <nixpkgs> { };
 
 stdenv.mkDerivation {
   pname = "sbx";
   version = "0.29.0";
 
   buildInputs = [
-    pkgs.e2fsprogs
+    e2fsprogs
+    zlib
+    lz4
+    zstd
+    xxhash
   ];
 
   src = fetchzip {
