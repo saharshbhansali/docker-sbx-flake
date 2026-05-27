@@ -17,7 +17,7 @@
             config = { };
             overlays = [ ];
           };
-          sbx = pkgs.callPackage ./pkgs/sbx.nix {
+          sbx = pkgs.callPackage ./sbx.nix {
             inherit (inputs) nixpkgs;
           };
         in
